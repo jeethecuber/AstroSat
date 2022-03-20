@@ -8,10 +8,11 @@ import re
 import os
 
 
-start = int(input('Start: '))
-stop = int(input('Stop : '))
+start = int(input('From where do you need to calculate?: '))
+stop = int(input('Upto where do you need to calculate?  : '))
+print('\n--------------------------CALCULATING NOISE RATIO AND TELEMETRIC ERROR--------------------------\n')
 
-file = open('all_noise.dat','w')
+file = open('all_noise_and tele_error.dat','w')
 file.write('---------------------------------------------\n')
 file.write('                  Noise Ratio   \n')
 file.write('---------------------------------------------\n')
@@ -60,7 +61,7 @@ for l in range(stop+5,start+5,-1):
 
 	orb = soup.find_all('title')[0]
 	orbid = orb.text[-5:]
-	print('obsid:', obsid ,	' orbid:', orbid)
+	print('Checking obsid:', obsid ,	' orbid:', orbid)
 	
 	table = soup.find_all('table')
     
@@ -97,7 +98,7 @@ for l in range(stop+5,start+5,-1):
 				flag = 1
     	
 	
-	
+
 
     
 	if flag == 1 :
@@ -192,11 +193,10 @@ for l in range(stop+5,start+5,-1):
 		temp = '{:4}    {:5}      {:10}   {:5}  {:5}\n'.format( obsid,orbid,d,detid_d,pixid_d)
 		file.write(temp)
 
-
+print(' \n \n Done. Check all_noise_and tele_error.dat for details.\n\n')
 
 file.flush()
 file.close()
-
 
 
 
