@@ -9,7 +9,7 @@ import os
 
 
 start = int(input('From where do you need to calculate?: '))
-stop = int(input('Upto where do you need to calculate?  : '))
+stop = int(input('Upto where do you need to calculate?: '))
 print('\n--------------------------CALCULATING NOISE RATIO AND TELEMETRIC ERROR--------------------------\n')
 
 file = open('all_noise_and tele_error.dat','w')
@@ -21,7 +21,7 @@ file.write('---------------------------------------------\n')
 
 
    
-url = 'https://www.iucaa.in/~astrosat/czti_dqr/index.html'
+url = 'http://www.iucaa.in/~astrosat/czti_dqr/'
 html = urlopen(url)
 s = BeautifulSoup(html, 'lxml')
 
@@ -47,7 +47,7 @@ def mode(value):
 		
 	
 
-for l in range(stop+5,start+5,-1):
+for l in range(stop+5,start+4,-1):
 	
 	
 	strip = links[l].get('href')
@@ -61,7 +61,7 @@ for l in range(stop+5,start+5,-1):
 
 	orb = soup.find_all('title')[0]
 	orbid = orb.text[-5:]
-	print('Checking obsid:', obsid ,	' orbid:', orbid)
+	print('Checking ObsID:', obsid ,	' OrbID:', orbid)
 	
 	table = soup.find_all('table')
     
@@ -197,6 +197,7 @@ print(' \n \n Done. Check all_noise_and tele_error.dat for details.\n\n')
 
 file.flush()
 file.close()
+
 
 
 
