@@ -8,11 +8,12 @@ import re
 import os
 
 
-start = int(input('From where do you need to calculate?: '))
-stop = int(input('Upto where do you need to calculate?: '))
+start = int(input('Enter first row: '))
+stop = int(input('Enter last row: '))
 print('\n--------------------------CALCULATING NOISE RATIO AND TELEMETRIC ERROR--------------------------\n')
 
 file = open('all_noise_and tele_error.dat','w')
+file.write("Hi,\n \n")
 file.write('---------------------------------------------\n')
 file.write('                  Noise Ratio   \n')
 file.write('---------------------------------------------\n')
@@ -195,8 +196,16 @@ for l in range(stop+5,start+4,-1):
 
 print(' \n \n Done. Check all_noise_and tele_error.dat for details.\n\n')
 
+file.write('Thanks,\n Rahul\n')
 file.flush()
 file.close()
+
+
+
+
+
+
+
 
 
 
