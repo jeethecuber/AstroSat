@@ -101,7 +101,6 @@ for row in table.find_all('tr'):
 time = AstroSec
 result= re.findall(r"[-+]?(?:\d*\.\d+|\d+)", time)
 tt.append(result)
-print(tt)
 tt.pop(0)
 rows.append(new_row)
 rows.pop(0)
